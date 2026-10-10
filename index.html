@@ -109,13 +109,13 @@
   main{position:relative;z-index:10;max-width:960px;margin:0 auto;padding:4px clamp(16px,4vw,24px) 60px;
     display:flex;flex-direction:column;align-items:center;gap:4px}
 
-  .hero{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:6px;width:100%}
-  .hero .girl{width:min(228px,45vw);filter:drop-shadow(0 20px 24px rgba(20,60,130,.2));
-    animation:floaty 4.8s ease-in-out infinite}
-  .hero .girl img{width:100%;height:auto;display:block}
-  .hero .eat{width:min(290px,52vw);filter:drop-shadow(0 18px 22px rgba(20,60,130,.18));
+  .hero{position:relative;display:flex;align-items:center;justify-content:center;gap:auto;width:100%}
+  .hero .girl{width:min(262px,42vw);flex:none;position:relative;z-index:2;margin-right:-22px;
+    filter:drop-shadow(0 20px 24px rgba(20,60,130,.2));animation:floaty 4.8s ease-in-out infinite}
+  .hero .girl img{width:100%;height:auto;display:block;transform:scale(1.08) translateY(6px)}
+  .hero .eat{width:min(480px,60vw);flex:none;filter:drop-shadow(0 18px 22px rgba(20,60,130,.18));
     animation:floaty 5.6s ease-in-out infinite .6s}
-  .hero .eat img{width:100%;height:auto;display:block;border-radius:22px}
+  .hero .eat img{width:100%;height:auto;display:block;border-radius:24px}
   @keyframes floaty{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-11px) rotate(.7deg)}}
   .hero .girl.thinking{animation:wiggle .5s ease-in-out infinite}
   @keyframes wiggle{0%,100%{transform:rotate(-2.6deg)}50%{transform:rotate(2.6deg) translateY(-6px)}}
@@ -216,6 +216,7 @@
   .toast.show{opacity:1;transform:translate(-50%,0)}
 
   footer{position:relative;z-index:10;text-align:center;padding:6px 20px 40px;font-size:12px;font-weight:700;color:#7ba0cf;line-height:1.9}
+  @media (min-width:641px){ footer{padding-right:190px;padding-left:190px} }
   footer .credit{font-size:10.5px;font-weight:600;color:#9ab6dc}
   footer a{color:#6d94c9}
 
@@ -773,7 +774,8 @@
     rKv.innerHTML =
       (area ? '<div><span class="k">位置</span><span>' + esc(fullRegion || area) + "</span></div>" : "") +
       '<div><span class="k">地址</span><span>' + esc(p.address || "高德没给详细地址") + "</span></div>" +
-      (p.tel && p.tel !== "[]" ? '<div><span class="k">电话</span><span>' + esc(p.tel) + "</span></div>" : "");
+      (p.tel && p.tel !== "[]" ? '<div><span class="k">电话</span><span>' + esc(p.tel) + "</span></div>" : "") +
+      (!p.tel || p.tel === "[]" ? '<div><span class="k">电话</span><span>高德没收录这家电话，点「在高德打开」看详情</span></div>' : "");
 
     var tags = '<span class="tag">' + esc(type) + "</span>";
     if (rating) tags += '<span class="tag gold">★ ' + esc(rating) + "</span>";
