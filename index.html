@@ -59,14 +59,10 @@
   @keyframes rise{0%{transform:translate3d(0,0,0) scale(.85);opacity:0}12%{opacity:.75}85%{opacity:.5}100%{transform:translate3d(var(--dx,20px),-118vh,0) scale(1.1);opacity:0}}
   .wave{position:fixed;left:0;right:0;bottom:0;height:170px;z-index:0;opacity:.4;pointer-events:none}
 
-  /* 顶部：右侧地区选择放到最上行 */
+  /* 顶部：只有右侧地区选择（放在最上行） */
   header{position:relative;z-index:20;max-width:1180px;margin:0 auto;
     display:flex;align-items:center;justify-content:flex-end;gap:14px;
     padding:16px clamp(16px,4vw,40px)}
-  .brand{display:none}
-  .brand .logo{width:42px;height:42px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:22px;
-    background:linear-gradient(150deg,#e8f3ff,#bcd9fb);box-shadow:0 8px 18px rgba(36,86,216,.22),inset 0 0 0 2px rgba(255,255,255,.9)}
-  .brand small{display:block;font-weight:600;font-size:10.5px;color:#5b87c6;letter-spacing:1.2px}
 
   /* 地区选择器 */
   .region{position:relative;z-index:40}
@@ -203,7 +199,6 @@
   footer a{color:#6d94c9}
 
   @media (max-width:640px){
-    .brand small{display:none}
     .region-btn .value{max-width:7.5em}
     .picker{right:-8px;width:calc(100vw - 28px)}
     .mascot{width:min(200px,52vw);margin-top:4px}
@@ -226,10 +221,6 @@
 </div>
 
 <header>
-  <div class="brand">
-    <div>吃什么<small>WHALE GIRL PICKS YOUR MEAL</small></div>
-  </div>
-
   <div class="region" id="region">
     <button class="region-btn" id="regionBtn" aria-haspopup="dialog" aria-expanded="false">
       <span class="pin">🗺️</span>
