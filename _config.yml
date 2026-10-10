@@ -1,0 +1,4 @@
+# 让 GitHub Pages(Jekyll) 原样发布静态文件，不做任何处理
+include:
+  - assets
+  - scripts
